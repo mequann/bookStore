@@ -1,9 +1,12 @@
-import cors from"cors"
+import cors from "cors";
 import express from "express";
 
 import tableRoute from "./Routes/tableCreateR.js";
-import connectionInformation from './schema/database.js'
+import connectionInformation from "./schema/database.js";
 import registerRouter from "./Routes/registerR.js";
+import loginRoute from "./Routes/loginR.js";
+import inserbookRoute from "./Routes/insertbookR.js";
+import getBookRoute from "./Routes/getAllbookR.js";
 
 // server
 const app = express();
@@ -13,9 +16,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 //main route
-app.use('/admin',tableRoute)
+app.use("/admin", tableRoute);
 //user route
-app.use('/user',registerRouter)
+app.use("/user", registerRouter);
+app.use("/user", loginRoute);
+//book insert route
+app.use("/user",  inserbookRoute);
+app.use("/user", getBookRoute);
+
 // connection to database
 function connecterCrator() {
   try {
@@ -34,5 +42,5 @@ function connecterCrator() {
   }
 }
 
-connecterCrator();   
-export default  connectionInformation
+connecterCrator();
+export default connectionInformation;
