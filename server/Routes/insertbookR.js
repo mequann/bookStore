@@ -1,6 +1,7 @@
-import express from 'express'
-import insertBook from '../controllers/bookinsertC.js'
-import multerbook from'../middleware/forbooks.js'
-let inserbookRoute=express.Router()
-inserbookRoute.post('/postbook',multerbook,insertBook)
-export default  inserbookRoute
+import express from "express";
+import uploadFile from "../controllers/bookUploadC.js";
+import multerbook from "../middleware/forbooks.js";
+let inserbookRoute = express.Router();
+
+inserbookRoute.post("/postbook", multerbook, uploadFile);
+export default inserbookRoute;

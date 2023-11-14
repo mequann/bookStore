@@ -8,7 +8,7 @@ import loginRoute from "./Routes/loginR.js";
 import inserbookRoute from "./Routes/insertbookR.js";
 import getBookRoute from "./Routes/getAllbookR.js";
 
-// server
+// server   
 const app = express();
 
 // middleware
@@ -22,6 +22,7 @@ app.use("/user", registerRouter);
 app.use("/user", loginRoute);
 //book insert route
 app.use("/user",  inserbookRoute);
+//get all books
 app.use("/user", getBookRoute);
 
 // connection to database
@@ -44,3 +45,5 @@ function connecterCrator() {
 
 connecterCrator();
 export default connectionInformation;
+   
+ 
